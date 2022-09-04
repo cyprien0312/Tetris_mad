@@ -1,14 +1,16 @@
 // Z.java
-package src;
+package src.blocks;
 import ch.aplu.jgamegrid.*;
+import src.Tetris;
+import src.TetroBlock;
 
-class Z extends Block
+public class Z extends Block
 {
   private static final int blockId = 6;
   private static final int size = 4;
   private static final String blockName = "Z";
 
-  Z(Tetris tetris)
+  public Z(Tetris tetris)
   {
     super(blockId, blockName, size, tetris);
 

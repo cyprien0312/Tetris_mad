@@ -1,17 +1,18 @@
-// S.java
-package src;
+// J.java
+package src.blocks;
 import ch.aplu.jgamegrid.*;
+import src.Tetris;
+import src.TetroBlock;
 
-class T extends Block
+public class J extends Block
 {
-  private static final int blockId = 5;
+  private static final int blockId = 1;
+  private static final String blockName = "J";
   private static final int size = 4;
-  private static final String blockName = "T";
 
-  T(Tetris tetris)
+  public J(Tetris tetris)
   {
     super(blockId, blockName, size, tetris);
-
 
     this.tetris = tetris;
 
@@ -19,28 +20,29 @@ class T extends Block
 
   @Override
   public void setLocation() {
+
     var r = createLoc(size);
     // rotId 0
     r[0][0] = new Location(-1, 0);
     r[1][0] = new Location(0, 0);
     r[2][0] = new Location(1, 0);
-    r[3][0] = new Location(0, 1);
+    r[3][0] = new Location(1, 1);
     // rotId 1
     r[0][1] = new Location(0, -1);
     r[1][1] = new Location(0, 0);
     r[2][1] = new Location(0, 1);
-    r[3][1] = new Location(-1, 0);
+    r[3][1] = new Location(-1, 1);
     // rotId 2
     r[0][2] = new Location(1, 0);
     r[1][2] = new Location(0, 0);
     r[2][2] = new Location(-1, 0);
-    r[3][2] = new Location(0, -1);
+    r[3][2] = new Location(-1, -1);
     // rotId 3
     r[0][3] = new Location(0, 1);
     r[1][3] = new Location(0, 0);
     r[2][3] = new Location(0, -1);
-    r[3][3] = new Location(1, 0);
+    r[3][3] = new Location(1, -1);
 
-    for (Location[] locations : r) blocks.add(new TetroBlock(blockId, locations));
+    for (Location[] locations : r) super.blocks.add(new TetroBlock(blockId, locations));
   }
 }

@@ -1,0 +1,10 @@
+Difficulty: Medium
+Average score per round: NaN
+------------------------------------------
+P: 2
+Q: 1
+S: 1
+J: 3
+Z: 1
+L: 2
+O: 5

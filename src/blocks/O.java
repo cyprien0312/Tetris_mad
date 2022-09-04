@@ -1,14 +1,16 @@
 // O.java
-package src;
+package src.blocks;
 import ch.aplu.jgamegrid.*;
+import src.Tetris;
+import src.TetroBlock;
 
-class O extends Block
+public class O extends Block
 {
   private static final int blockId = 3;
   private static final int size = 4;
   private static final String blockName = "O";
 
-  O(Tetris tetris)
+  public O(Tetris tetris)
   {
     super(blockId, blockName, size, tetris);
 
