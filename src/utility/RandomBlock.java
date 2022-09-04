@@ -14,7 +14,7 @@ public class RandomBlock {
         if (blockActions.length > blockActionIndex) {
         currentBlockMove = blockActions[blockActionIndex];
     }*/
-    private static final String[] shapes = new String[]{ "I", "J", "L", "O", "S", "T", "Z",  "P", "Q", "+"};
+    private static final String[] shapes = new String[]{ "I", "J", "L", "O", "S", "T", "Z",  "P", "Q", "Plus"};
     private static final int pivot = 7;
 
 
