@@ -71,7 +71,7 @@ public abstract class Tetris extends JFrame implements GGActListener {
         setTitle("SWEN30006 Tetris Madness");
         score = 0;
         showScore(score);
-        setSpeed(score);
+        changeSpeed(score);
         slowDown = 5;
     }
 
@@ -115,7 +115,7 @@ public abstract class Tetris extends JFrame implements GGActListener {
             next.setAutoBlockMove(currentBlockMove);
         }
         next.setSlowDown(slowDown);
-        setSpeed(score);
+        changeSpeed(score);
         gameStats.addTetrisToStat(round, next.getClass().getSimpleName());
 
         if (blockPreview != null) {
@@ -157,12 +157,12 @@ public abstract class Tetris extends JFrame implements GGActListener {
                 gameStats.addScore(round, score);
                 gameCallback.changeOfScore(score);
                 showScore(score);
-                setSpeed(score);
+                changeSpeed(score);
             }
         }
     }
 
-    private void setSpeed(int score) {
+    private void changeSpeed(int score) {
         // Set speed of tetrisBlocks
         if (score > 10)
             slowDown = 4;
@@ -212,9 +212,16 @@ public abstract class Tetris extends JFrame implements GGActListener {
         gameGrid1.requestFocus();
         score = 0;
         showScore(score);
-        slowDown = 5;
-        setSpeed(score);
+        resetSpeed();
         ++round;
+    }
+
+    private void resetSpeed() {
+        if (isAuto) {
+            speed = DEFAULT_SPEED_AUTO;
+        } else {
+            speed =  DEFAULT_SPEED;
+        }
     }
 
     // Different speed for manual and auto mode
