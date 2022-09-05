@@ -1,18 +1,19 @@
 Difficulty: Madness
 Average score per round: NaN
 ------------------------------------------
-P: 1
-Q: 1
-S: 3
+P: 2
+Q: 2
+S: 1
 T: 1
+I: 1
+J: 3
+Z: 2
+L: 1
+O: 3
+P: 3
+Q: 1
+T: 3
 I: 3
 J: 2
-Z: 3
-L: 2
-O: 1
-P: 4
-Q: 1
-S: 2
-T: 1
-L: 3
+Z: 1
 O: 2

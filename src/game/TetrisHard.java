@@ -1,7 +1,7 @@
 package src.game;
 
 import src.utility.RandomBlock;
-import src.Tetris;
+import src.AbstractTetris;
 import src.TetrisGameCallback;
 import src.blocks.Block;
 
@@ -9,9 +9,9 @@ import java.util.Properties;
 import java.util.Random;
 
 
-import static src.Tetris.GameDifficulty.HARD;
+import static src.AbstractTetris.GameDifficulty.HARD;
 
-public class TetrisHard extends Tetris {
+public class TetrisHard extends AbstractTetris {
     public static final GameDifficulty diff = HARD;
     public TetrisHard(TetrisGameCallback gameCallback, Properties properties) {
         super(gameCallback, properties);

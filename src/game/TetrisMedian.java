@@ -1,15 +1,15 @@
 package src.game;
 
 import src.utility.RandomBlock;
-import src.Tetris;
+import src.AbstractTetris;
 import src.TetrisGameCallback;
 import src.blocks.Block;
 
 import java.util.Properties;
 
-import static src.Tetris.GameDifficulty.MEDIAN;
+import static src.AbstractTetris.GameDifficulty.MEDIAN;
 
-public class TetrisMedian extends Tetris {
+public class TetrisMedian extends AbstractTetris {
     public static final GameDifficulty diff = MEDIAN;
     public TetrisMedian(TetrisGameCallback gameCallback, Properties properties) {
         super(gameCallback, properties);

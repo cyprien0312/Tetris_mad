@@ -1,6 +1,6 @@
 package src.utility;
 
-import src.Tetris;
+import src.AbstractTetris;
 import src.blocks.*;
 
 import java.util.Random;
@@ -18,37 +18,37 @@ public class RandomBlock {
     private static final int pivot = 7;
 
 
-    public static Block[] getRandomBlocks(Tetris.GameDifficulty diff, Random rad, Tetris tetris){
+    public static Block[] getRandomBlocks(AbstractTetris.GameDifficulty diff, Random rad, AbstractTetris abstractTetris){
         // return two blocks, one for scoring, one for preview
         Block[] blocks = new Block[2];
 
         int i = -1;
         String name = null;
-        if (diff == Tetris.GameDifficulty.EASY){
+        if (diff == AbstractTetris.GameDifficulty.EASY){
             i = rad.nextInt(pivot);
         }
         else {
             i = rad.nextInt(shapes.length);
         }
         name = shapes[i];
-        blocks[0] = getBlock(name, tetris);
-        blocks[1] = getBlock(name, tetris);
+        blocks[0] = getBlock(name, abstractTetris);
+        blocks[1] = getBlock(name, abstractTetris);
         return blocks;
     }
 
-    private static Block getBlock(String name, Tetris tetris) {
+    private static Block getBlock(String name, AbstractTetris abstractTetris) {
 
         return switch (name) {
-            case "J" -> new J(tetris);
-            case "L" -> new L(tetris);
-            case "O" -> new O(tetris);
-            case "S" -> new S(tetris);
-            case "T" -> new T(tetris);
-            case "Z" -> new Z(tetris);
-            case "P" -> new P(tetris);
-            case "Q" -> new Q(tetris);
-            case "Plus" -> new Plus(tetris);
-            default -> new I(tetris);
+            case "J" -> new J(abstractTetris);
+            case "L" -> new L(abstractTetris);
+            case "O" -> new O(abstractTetris);
+            case "S" -> new S(abstractTetris);
+            case "T" -> new T(abstractTetris);
+            case "Z" -> new Z(abstractTetris);
+            case "P" -> new P(abstractTetris);
+            case "Q" -> new Q(abstractTetris);
+            case "Plus" -> new Plus(abstractTetris);
+            default -> new I(abstractTetris);
         };
     }
 }

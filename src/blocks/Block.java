@@ -3,7 +3,7 @@ package src.blocks;
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.GameGrid;
 import ch.aplu.jgamegrid.Location;
-import src.Tetris;
+import src.AbstractTetris;
 import src.TetroBlock;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public abstract class Block extends Actor{
     private final String blockName;
     private Location[][] r ;
 
-    protected Tetris tetris;
+    protected AbstractTetris abstractTetris;
     private boolean isStarting = true;
     private int rotId = 0;
     private int nb;
@@ -24,12 +24,12 @@ public abstract class Block extends Actor{
     private String autoBlockMove = "";
     private int autoBlockIndex = 0;
 
-    public Block(int id, String name, int size, Tetris tetris){
+    public Block(int id, String name, int size, AbstractTetris abstractTetris){
         super();
         this.blockId = id;
         this.blockName = name;
         this.r = createLoc(size);
-        this.tetris = tetris;
+        this.abstractTetris = abstractTetris;
         setLocation();
     }
     public Location[][] createLoc(int size){
@@ -63,13 +63,13 @@ public abstract class Block extends Actor{
         {
             setDirection(90);
             if (nb == 1)
-                nextTetrisBlock = tetris.createRandomTetrisBlock();
+                nextTetrisBlock = abstractTetris.createRandomTetrisBlock();
             if (!advance())
             {
                 if (nb == 0)  // Game is over when tetrisBlock cannot fall down
                 {
                     try {
-                        tetris.gameOver();
+                        abstractTetris.gameOver();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -78,7 +78,7 @@ public abstract class Block extends Actor{
                 {
                     setActEnabled(false);
                     gameGrid.addActor(nextTetrisBlock, new Location(6, 0));
-                    tetris.setCurrentTetrisBlock(nextTetrisBlock);
+                    abstractTetris.setCurrentTetrisBlock(nextTetrisBlock);
                 }
             }
             nb++;
@@ -171,7 +171,7 @@ public abstract class Block extends Actor{
 
     private boolean canRotate(int rotId)
     {
-        if (!tetris.canRotate()) return false;
+        if (!abstractTetris.canRotate()) return false;
         // Check for every rotated tetroBlock within the tetrisBlock
         for (TetroBlock a : blocks)
         {

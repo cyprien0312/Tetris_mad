@@ -1,7 +1,7 @@
 package src.blocks;
 
 import ch.aplu.jgamegrid.Location;
-import src.Tetris;
+import src.AbstractTetris;
 import src.TetroBlock;
 
 
@@ -11,8 +11,8 @@ public class P extends Block {
     public static final String blockName = "P";
     public static final int size = 5;
 
-    public P(Tetris tetris) {
-        super(blockId, blockName, size, tetris);
+    public P(AbstractTetris abstractTetris) {
+        super(blockId, blockName, size, abstractTetris);
     }
 
     @Override
